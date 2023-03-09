@@ -1,0 +1,52 @@
+It all started with scripture. In Europe majority of people did not know how to read and write untill XV-XX century. In XV century Gutenberg invented printer and this started the age of printing press and made text accessible for general public. But it is estimated that only in XX century over 80% knew how to write and read. But anyway - even in Ancient times there was already a need to hide important messages not only in the pocket, or under the belt, to protect it from being read after messenger was captured by the enemy. And here we introduce:
+
+
+
+-> STEGANOGRAPHY - is about HIDING THE MESSAGE.
+The first "steganographed" message is dated to be sent in V Century BC by Greek Demaratos. He warned King of Sparta about upcoming war with Persian carving the message on the piece of wood that was covered with wax. This way it reached the destination unnoticed, however it took a while till Leonidas wife figured out that there must be something into it. The rest of the story we know.
+
+Other interesting method used during IIWW by Germans was to hide real message in the "." of another one. How? Well the dot was simply a picture that was decreased to so little size that it looked like a dot. If someone would just take a quick glance on it would probably not notice anything strange. On the other side Germans know what to expect and the message could travel unnoticed for a long time.
+
+Obviously the disadvantage of this method is that once captured, the content is not protected. So even thousand years back in time they asked question: how to HIDE THE CONTENT?
+
+
+
+-> CRYPTOGRAPHY - is about HIDING THE CONTENT OF THE MESSAGE, not the message itself.
+
+In ancient times kryptography contained of two types: shifting and/or substituing. Shifting means simply to switch letters in the sentence (it is called anagram). So:
+
+PLAIN TEXT: "coffee"
+ANAGRAM: "Eofcef" 
+
+First known device was invented in V BC, and it was called "scytale". It contained of cylinder and a belt wound up on it. Then the message was written on the belt. Now the messenger could wear the belt with the message inside, and the receiver to read it had to have a cylinder with the same or very similar size. 
+
+
+Substituing on another hand was to change letters. The most popular was Cesar's Cypher that changed every letter of a sentence +3. Cyphers that assign one letter/digit/symbol for one letter of the plain text are called MONOALPHABETIC CIPHERS. Below example:
+
+PLAIN TEXT: "DIEGO"
+SECRED TEXT: "GLHJS"
+
+When it comes to Cesar's, the layout was always the same (+3). So someone who knew the idea could easily read the content. It would be much safer if we apply some changes, eg every even letter we shift +3 and every odd +5. But this would be also be harder to read for receiver. And now we get to the most difficult part of cryptography: HOW TO SAFELY DISTRIBUE A KEY? With this example you can easily understand that once captured key make cipher useless. And if its only between me and you - its fine. But if 10903490 soldiers is using it and we need to deliver new key to every unit it will take time, for a long time they will be using old one as they wont be aware about the change, and also new key could be captured and so on, so on...
+
+
+
+-> CRYPTOANALISIS and the end of MONOALPHABETIC ciphers
+
+Al-Kindi is known as the "father" of cryptoanalisis. He invented "chosen-plaintext attack". The idea goes like that:
+	
+	If you know the base language of the cipher (eg. German) you need to take a page long plain text in that language and count letters from the most to the least appearing. Then do the same with secret text. Then substitue correspondencies.
+	
+Of course this do not guarantee that you can already read the text, but having discover few letters, you may discover some words, then another, untill the message is not big deal anymore.
+
+Nowadays this method will not work, because we use hash functions that give the same length output, no matter what is the length of the original message.
+
+
+
+-> FURTHER DEVELOPMENT OF CRYPTOGRAPHY
+Since 1900 BC when we observed that Egyptian were doing some word-play to add more pathos when writing history of dead Pharaons, following 3500 years did not bring much on this field, from what already presented. Al-Kindi broke monoalphabetic cipher in IX AD but many people in Europe for a long time after believed its non-breakable. For few hundred years cryptography was rather treated as a intellectual entertainment than something of high importance.
+
+It all changed when countries in Europe started emerging and diplomacy took place. Ambassadors, working also as spies, needed a way to securely send messages. Because monoalphabetic ciphers were not safe anymore, the new methods emerged. We reach the era of "unbreakable ciphers".
+
+
+
+
