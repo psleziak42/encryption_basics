@@ -12,7 +12,6 @@ Obviously the disadvantage of this method is that once captured, the content is 
 
 
 -> CRYPTOGRAPHY - is about HIDING THE CONTENT OF THE MESSAGE, not the message itself.
-
 In ancient times kryptography contained of two types: shifting and/or substituing. Shifting means simply to switch letters in the sentence (it is called anagram). So:
 
 PLAIN TEXT: "coffee"
@@ -20,6 +19,7 @@ ANAGRAM: "Eofcef"
 
 First known device was invented in V BC, and it was called "scytale". It contained of cylinder and a belt wound up on it. Then the message was written on the belt. Now the messenger could wear the belt with the message inside, and the receiver to read it had to have a cylinder with the same or very similar size. 
 
+/zdjecie scytale/
 
 Substituing on another hand was to change letters. The most popular was Cesar's Cypher that changed every letter of a sentence +3. Cyphers that assign one letter/digit/symbol for one letter of the plain text are called MONOALPHABETIC CIPHERS. Below example:
 
@@ -42,11 +42,66 @@ Nowadays this method will not work, because we use hash functions that give the 
 
 
 
+-> IMPORTANCE OF THE ABOVE
+II Century BC, Greek Polybius (Polibusz) created a 5x5 table that for every letter assigned 2 numbers. "A" was 11, "B" was 12. Sounds farily simple. In 1st WW when Germans were outnumbering French. Their strategy was to concentrate a lot of soldiers in certain point and break the front line as far as they can to finally capture Paris. To succeed French had to know where enemy is going to strike, but at that particular time they had to keep a bit of soldiers on the long front line before attack happen. The way to predict was to listen to radio correspondency. Although they were capturing some informations, all of it looked like:
+		
+					XAXFX AGFDXXA DXGGX FAFFA XGAGX AVDFA GAXFX etc.
+		
+It took a very long while to understand those messages and as usuall with "unbreakable system" the human error came into play. There was a day when Germans sent a lot of messages, all using the same key. They were all compared and showed some repetitions, eg. that headder/beginning looks always the same (cipher-text only attack / frequency attack). With comparation of (chosen plain-text attack), code breaker was able to figure out the most often appearing letter in German that was 'e'. Few months later French were able to read the code. Untill soon Germans changed ADFGX to ADFGVX and the key itself (key - what letter is encrypted with what symbols), however the knowledge how the system works helped to decode it pretty quickly. French got to know where Germans were concentrating(remember - no GPS, not many planes, different times) and gather there to repell the attack. They succeed, later USA enter the game and free world won. 
+
+Out of this story we can take few principals that are still important nowadays and we will discuss 'em later:
+	-> Bad application of good system makes it not necesarly bad, but definitelly not as good as it is planned in theory.
+	-> Usually its is human factor that is the weakest link. Even nowadays when we have all that difficult mathematical operation behind loging in to the bank, what will it do if you password is "1234abc" (dictionary-attack) or simply sticked to your monitor so anyone can get it?
+
+
+/zdjecie tablicy/ 
+
+
 -> FURTHER DEVELOPMENT OF CRYPTOGRAPHY
 Since 1900 BC when we observed that Egyptian were doing some word-play to add more pathos when writing history of dead Pharaons, following 3500 years did not bring much on this field, from what already presented. Al-Kindi broke monoalphabetic cipher in IX AD but many people in Europe for a long time after believed its non-breakable. For few hundred years cryptography was rather treated as a intellectual entertainment than something of high importance.
 
 It all changed when countries in Europe started emerging and diplomacy took place. Ambassadors, working also as spies, needed a way to securely send messages. Because monoalphabetic ciphers were not safe anymore, the new methods emerged. We reach the era of "unbreakable ciphers".
 
+-> homophonic cipher
+	every letter of plaintext can have many substitutes. The idea in medival times was to give for each letter as many substitutes as frequent is its % occurence in the language. Eg. if letter tend to appear 7% of times it would have 7 substitues. So:
+						MIUEL can be EVOLA or EVOBA or any other.
+	
+	But frequency of appearance of single letters is not the only thing that distinguish the language. Letters come in pairs and threes, but also whole words repeat each other eg. "with", "but", "because". And those hints were good enough to break this code with time and humanity moved forward.
+	
 
+-> polyalphabetic cipher
+	In the most simple words its many monoalphabetic ciphers used together. The first known example is "Alberti's Shield". It contains of two round shields that were put one inside another. The inside one could move, so there is now at least 25 possibilities to encrypt the message. Of course in order this to work, everyone had to have the shield and know the starting position.
+	
+				/// ZDJECIE TARCZY ALBERTIEGO ///
+				
+				
+	The next one was invented 50 years later by Johannes Trithemius. He created a table with 26 alphabets, each starting from the next letter - so 1st is: ABC...Z 2nd is: BCD...A, last is: ZAB...Y. The idea was to take 1st letter and cypher it with 1st alphabet, 2nd with 2nd itd. That would protect the secred text from cipher-text only attack (frequency attack). However if someone knew the logic behind it, it was easy to break.
+	
+	
+				/// TABULA RECTA I SZYFR VINEGRETA ///
+				
+	To prevent this, another half of the century later, Blaise de Vigenere proposed to change the order of secred alphabet. This way knowledge of how system work was not enough to decrypt the message. It was necessary to know the KEY. And the key could be a simple word known by both sides: eg. word "secret" would mean to use 19th alphabet to cipher 1st letter, 5th for 2nd, 3rd for 3rd etc. Vigenere also idea of "AUTOKEY". The receipient had to know only how to read the 1st letter that became the number to look for 2nd, then that 2nd became number to find 3rd etc. Vinaigrette cipher was broken only in XIX century, almost 300 years later by Charles Babbage. The most important here was to distinguish the length of the used key. This could be done by gathering enough secred texts (cipher-text only attack).
+	
 
+-> Diagraph Ciphers in short divided plaintext into pairs(diagrams) and then replace each pair with another pair of characters(disgrams), concerning some rules. The first in history diagraph cipher was called "Playfair" from the name the name of its inventor. The table was 5x5 and could be filled with key-word on the beginning. The following letters were in alfabetic order. 
+
+				/// PLAYFAIR CYPHER ///
+				
+
+-> IIWW - ENIGMA
+Enigma was a typewriter with bonus. In order to understand, try to imagine 2 typewriters coupled together with wires the way that when you press "a" on the 1st one, eg. key "f" is triggered on another one. This way we would get simple monoalphabetic cipher. Enigma itself was one typewriter with moving disks. The position of those disk decided what output one is going to get. The disks worked like car counter. When first one did full turn, 2nd one moved one position etc. The thing was that there were more disks than slots. Disks could have different sizes and contain not only letters. The final results depended on:
+	. what disks were chosen
+	. which one went first, second etc
+	. what was starting position
+If you considered that they are fixed and each one contain of 26 same symbols, then for 5 disks you would get 26^5 that gives close to 12 000 000 combinations.
+
+For a receiver to decrypt the message, he had to know what disks and in what position were used. Germans had "daily keys" that were distributed every day via secure telegraph lines (now, secure means that nobody, at any place has physical access to it. Having physical access would mean that one can listen to the morse code being sent there. To make it secure, those strategic connections were build over hard to access terrain and also protected by patrols). Many times, on the beginning of the message there was another key repeated twice. The daily key was used to decrypt it, then someone was changing disks according to the new one and only then could read the final message. This yet made decryption harder because each message sent the same day could have different settings.
+
+-> so if it was impossible, how they managed to break it?
+There were few hints that were good to start with: on the beginning of each secret message there was a key repeated twice. Germans are also known for following the rules, so each message had the same shape and formalized character. Also the ability to decrypt message with the same one that encrypt text made it impossible to have plaintext letter being equal on secred text. This way scientists could search for some key words that almost sure had to appear like: attack (angriff). If any letter from word ANGRIFF would appear on the text, then we know it cannot be there and move to the next position. This is called negative pattern based cryptanalysis. So in general, the method behind breaking Enigma was to find probable words in secred text to later figure out the key basing on relation plaintext - secred text. 
+
+			/// daj zdjcie 1.9 z stony 37 ///
+			
+			
+-> NOWADAYS
 
