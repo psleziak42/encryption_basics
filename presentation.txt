@@ -103,5 +103,83 @@ There were few hints that were good to start with: on the beginning of each secr
 			/// daj zdjcie 1.9 z stony 37 ///
 			
 			
--> NOWADAYS
+-> NOWADAYS and the war about strong standards
 
+
+When computers came to play we could "emulate" any physical device, and even more - we could virtually create ones that could not be constructed in real world. This means that all the physical limitations were gone. We still shift elements of the plaintext to get secred text, however now we do not encrypt letters, but 0s and 1s.
+
+
+DES - Data Encryption Standard - was firstly intruced as "Demon" that was short from "Demonstration" with 128bit key. It was block cipher, that means it was encrypting blocs of data of certain length and giving as an output encrypted block of the same length.
+
+128 bit was very hard to crack with bruteforce attack, however in USA, National Security Agency didnt want to agree on such a strong system. For a very long time they were weakening standards in order to have abiliti to access to data exchanged by potentially dangerous people. At certain point cryptography was treated as a weapon, what in practice meant that if you use key longer than given standard (for a long time it was 56bits) you may be arrested and sentenced to prison as you were illegally holding weapon. Many people who knew about cryptography and were not related with the government, were fighting agains NSA and against artificial lowering of the standard. Lower standards gave more control for the agency, but were also making regular users more vunerable agains hacker attacks. The whole situation had changed around 2000. Due to low standards investors could not trust companies in US and moved towards Europe where proper encryption was applied. Then to be competitive, they had changed law in US and although NSA still try to have controll, nowadays is not a crime to use world wide standards.
+
+In 1976 DES was accepted, but with 56bit key. Every bit less reduce cipher security by 50%. So just imagine the difference between 128 and 56bits. DES was symmetric-key cryptography algorithm. This means that the same secret key is used both for encryption and decryption of the data. The sender and receiver of the data must both have access to the same key in order to communicate securely with each other. And this again created a problem - how to safely distribute a key? 
+
+
+ASYMETRIC CRYPTOGRAPHY - RSA
+Cryptographic system free from the problem of key distribution seemed impossible to achieve. Untill now the key to encrypt and decrypt had to be inaccessible. Ron (R)ivest, Adi (S)hamir and Leonarda (A)dleman similar to Whit Diffie and Marty Hellman (Diffie-Hellman) proposed that key used to encrypt should be given to the public access. They created the system with 2 keys - private and public. Public one could be distributed freely. Private one must be kept secret. Public key is used to encrypt the data that can be decrypted only with corresponding private key. Private key is used for decryption, but also can be used to decrypt message - this feature is known as "Digital Signature". Anyone with public key can decrypt the signature and knowing that it is impossible to create signature without having correct private key, its owner cant deny the signature. Theory was good, but mathematics were necessary to make it work.
+
+// to chyba trzeba pominac
+
+RSA and big prime numbers:
+.To create public key first we need to multiplicate two big, randomly taken prime numbers [p, q] (and to give you idea: the biggest known prime number has 82,589,933 digits. The book I wrote has 600 000 characters and took around 200 pages A4, 414 book pages). Lets call that number "n". 
+
+.Later we take number smaller than "n" that is relatively first number with (p -1) and (q -1). Let us call it "e".
+
+.(n, e) is our public key that can be shared with everyone. 
+
+The next step is to choose another big number with certain propertiest. It is encryption key (private key). Public key is created by multiplying private key and the multiplication of two big randomly taken prime numbers. Hence private key is easy to get if we know prime numbers used. Those numbers are known for the owner of the keys, however cryptoanalyst can get it only by factorization of that number. And that is not impossiblem however very hard to do, 
+
+//
+
+
+
+
+=======================
+THEORY BEHIND CRYPTOGRAPHY:
+
+Methods of breaking cipher texts:
+
+-> Brute-force attack (łamanie metodą pełnego przeglądu)
+This metods relies on trying many keys until the solution found makes sense. Performance depends on the computing power of the computer. The more keys/time we are able to try the bigger the chance to succeed. This is why it is important to use long key. If there is too many combinations avaliables brute-force attack stops being usefull.
+
+-> Ciphertext-only attack (Łamanie z szyfrogramami)
+Cryptanalyst has access only to cipher-texts created with the the same algorythm. Basing on them he must determine the key used to encrypt the message or or try to decrypt at least some part of the message. 
+
+-> Known plain-text attack (łamanie ze znanym tekstem jawnym)
+Cryptoanalyst knows some part of the cipher-text message, for example that it starts always from "Dear Sir" and ends with "Best Regards" and basing on this he is suppose to find a key/algorithm used to encrypt messages.
+
+-> Chosen plain-text attack (łamanie z wybranym szyfrem jawnym)
+In this case cryptoanalyst uses plain-text of his choise to encrypt it with the algorythm. In this case he can choose the plain-text to get more informations about the key. English used this method to break Enigma. They act in certain way to force Germans to send certain cipher-texts, that later on they caught. But this one is not only about history. This method is used nowadays against data bases. Attacker puts certain information to databses and compare cipher-texts. To put data into database is usually not difficult - anyone can register and fill shopping cart.
+
+-> Chosen cipher-text attack (łamanie z wybranym szyfrogramem)
+Attacker have access to ciphertext and corresponding plain-text and basing on it he needs to find authomatic decryption method. This is used agains systems with public key. Attacker can choose plain-text, get widely-avaliable public key and use it to encrypt the text. Then the attacker can use this info to figure out private key.
+
+
+SOMETHING MORE ADVANCED:
+Linear and Differential Cryptoanalysis.
+
+
+OTHER METHODS more H4CK3RM4N
+->DDoS
+
+
+
+-> Replay Attack (atak przez powtorzenie)
+Is about capturing a message sent to the server and using it later in time to get unauthorized access. For example hacker can get username and password, and use it to his advantage to get access to victims account. Other thing could be to obtain a packet containing data about electronic payment like credit card number, amount, date and later send it again to do unauthorized transaction.
+
+To protect from it, random tokens, timestamps or nonces (one time values) are used inside the message. This way captured message is useless. 2FA is also good solution.
+
+
+-> Dictionary Attack (atak słownikowy)
+I think around 2008 when myspace was the most popular social media, somebody managed to break into their database and download millions (billions and billions :D) passwords of different users. At that time, they were all in plain text. From that moment on it became mandatory to use at least 8 different symbols everywhere when signing up. According to "darknet diaries" that huge list of passwords is kept in Kali Linux on default. But I also seen it when studying TCM academy. Its huge.
+
+So dictionary attack is about using that database and just trying its entries one by one, counting that a victim has easy password that might be on the list.
+
+It is important to notice that this attack can be also executed agains passwords that are hashed. Nowadays if you manage to obtain the database entries you gonna see only hash. However knowing the hashing algorytm, you can use dictionary and compare received hash. If they match job is done.
+
+
+
+-> cryptoanalytic methods
+-> linear and differential cryptanalysis
+-> illegal methods of getting data access 0 h4ck3rm4n
