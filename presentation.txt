@@ -161,7 +161,12 @@ Linear and Differential Cryptoanalysis.
 
 
 OTHER METHODS more H4CK3RM4N
-->DDoS
+->DDoS - Distributed Denial of Service Attack
+It is type of attack when large number of computers try to get access to the server at the same time. To establish a connection client talks to server, server back to client and then client must talk back agai to server. But that last answer never comes. For every client arriving server must save some resurces needed to serve the connection. H4ck3r using the technique of IP Spoofing (that is creating fake IP addresssess) creates another "half-open" connections , server reserves resources and soon he is out of them, causing the webpage to slow down or not working at all.
+
+When we worked on webserver on 42, in my team we implemented function that was closing open connections after 5seconds. In our case if we havent received any message from a client in 5sec it was automatically disconnected. But even this would not help, as attacker can create new connection faster than old will be closed.
+
+According to ChatGPDm, DDos itself is can be harmful to encryption in a moment when overloaded server decides to drop encrypting packets in order to mantain better connecton. Other than that it can be used in a combination with socialengineering. Your server slows down, then IT guy from Vodaphone is calling if you havent experience network problems, asks your mum for a password and well he is in :).
 
 
 
@@ -179,7 +184,197 @@ So dictionary attack is about using that database and just trying its entries on
 It is important to notice that this attack can be also executed agains passwords that are hashed. Nowadays if you manage to obtain the database entries you gonna see only hash. However knowing the hashing algorytm, you can use dictionary and compare received hash. If they match job is done.
 
 
+-> Side Channel Attack (atak kanałem bocznym)
+This type of attack is realated to obtaining relevant informations from physical components - such as power consumption, electromagnetic radiation or sound emissions. For example radiation emitted by a cable can contain some information that can be read from a very long distance using certain devices. And we talk here even about connection between your computer and monitor. To protect from it one should use shielded cables (kable ekranowane) or optical fiber that does not create elecromagnetic field. Another example (I think) could be capturing car-opening signal. I seen the video on youtube when the guy was able to catch frequency and then reproduce it to open a car/garage.
 
--> cryptoanalytic methods
--> linear and differential cryptanalysis
--> illegal methods of getting data access 0 h4ck3rm4n
+There exists a way to obtain sensitive data by the SOUND that pressed key does. I am not sure how much it is related to regular keyboard, however maybe you seen videos when guys play some Star Works themes on entry phones(domofon). It is because every key has different music note.
+Here also the sound made by processor could be analysed to determine what operation its currently performing(its probably realted to older computers, the book is from 2013).
+
+Another way described in the book is to analyse power consumption by a device. This can give a hint about taken operation. There is a guy (P. Kocher) who created differential power analysis (analiza rożnicowa mocy). It contains of checking power consumption of different parts of a computer during the moment durint encryption process. Apparently somehow this can help attacker to get some bits of the key.
+
+
+
+
+-> MitM - Man in the Middle (atak z wnętrza systemu)
+As the name says it is someone in the middle of 2 nodes that think they communicate directly. This way attacker can capture data being transferred and filter it to find sensitive information like credit card details, logins, passwords, or manipulate it. MitM attacks can be carried out in several ways, including intercepting wireless network traffic, manipulating Domain Name System (DNS) resolution, or using malware to infect a user's device and monitor their internet traffic.
+
+To defend agains MitM all the connection should be encrypted and we need to make sure that security certificates are validated.
+
+One thing important to mention here is to be carefull when using public wifi. According to my findings, public networks are often unencrypted, that means anyone with certain skills and tools (i bet wireshark for instance) can easily read our traffic. Public networks arent often mantained by security professionals and may not have the latest security patches or updates. So attackers can exploit its vunerabilities.
+
+
+-> MitM - Meet in the Middle (spotkajmy się w środku?)
+awesome video: https://www.youtube.com/watch?v=eNJCo3lSp-E
+This attack is aimed towards "double" encryption systems, like doube DES - that use key of the same length twice. Meet in the middle was pretty hard to underdtand for me so let me put it in parts:
+
+1. DES algorythm by law couldnt use key bigger than 56 bits. This was cracked in 1998 and it became useless. So someone came up with the idea to enforce the strength and use different key with 56 bits twice. We get then 2^56 * 2^56 that is 2^112 combinations. It would look like this:
+		ENCRYPTION:
+		plain_text -> keyA (2^56) -> X -> keyB (2^56) -> final_output.
+		
+		DECRYPTION:
+		final_output -> keyB (2^56) -> X -> keyA (2^56) -> plain_text.
+
+!!===> So now to conduct Meet in the Middle attack we must ASSUME that h4ck3r somehow got to know one copy of plain_text and the final_output. <===!!
+
+2. To get keys one not necesairly need to brutforce 2^112 combinations. Instead he can try to encrypt every 2^56 possibilities for plain_text and decrypt final_output with 2^56 possibilities. If when X matches then he can deduct that keyA was A and keyB was B. Knowing both keys he can now decrypt every single message. The advantage comparing to bruteforce method is that at worse we needed to try 2^56 + 2^56 that is 2^57 instead of 112.
+
+!!===> To prevent this TripleDES was created. However its worth to remember that tripe takes more time than DES to encrypt/decrypt message. Having chatGPD estimations for encryption:
+
+DES)	1MB = 0,1 - 1sec
+DDES)	1MB = 1 - 10 sec
+TDES)	1MB = 5 - 50 sec!!!
+
+3. To protect agains MitM it is recomended to use:
+ - stronger algorythms
+ - increase key length, such as 256bits
+ - add randomness to encryption process - like adding salt to plaintext before encryption or using random initialization vector IV (gonna talk about it later).
+
+
+
+
+-> BIRTHDAY ATTACK (atak urodzinowy)
+Interesting thing happened when we went for a dinner with Double Nuno. Diogo and Henrique discovered that they have birthday on exactly the same day. There is mathematical paradox saying that in a group of 23 people, the probability that 2 people will have birthday the same day is bigger than 50%, what might seems strange considering that there is 365/356 posibilities. 
+
+So how it works:
+Birthday attack is applied against hash algorithms because they have fixed size output, which means the more things you try to hash, the higher probability is that you will get collision*, as the function cant generate more than 2^[output_in_bits]. So imagine someone stole a hashed database. In terms to get access he may try different random inputs till the hash of it will be the same as the one that grants access. Its more efficient than brute-force.
+
+
+How easy is that?
+According to birthday paradox:
+	"k" = sqrtN
+where:
+	k - number of documents
+	N - hash length
+
+so for 80bit hash we get:
+	k = sqrt2^80 => k = a lot. But still, back in time SHA-1 was broken with this attack and the standard rised
+	
+	
+To protect agains this scenarios is good to use functions with long output hash. Current standard is SHA-3.
+
+*collision is a situation when 2 different inputs produce the same output 
+
+
+
+-> Algebraic Attack (Atak Algebraiczny)
+I couldnt get that one very well, but the idea is that attacker can convert algorythm to set of algebraic equations and then solve them.
+
+
+-> Algorytmic Attack (Atak Algorytmiczny)
+It is an attack that try to find weak spot in mathematical theory of the encrypting algorythm. For instance for RSA it would be to find a method of quick factorization of lagrge numbers.
+
+
+-> Kleptography - back doors (Kleptografia - tylne drzwi)
+Many examples: producer of the encryption algorythm installs there back doors. As we discussed previously NSA wanted to (or did) implement back doors in DES to get quick and easy access to encrypted data. This could also be related to physical devices like something between keyboard and CPU that captures every input and saves it after computer is power off. Not sure if everyone is avare but there are cables that look like regular USB/charger that actually are used by RED Team Hackers to get data. Someone works in the library, goes to the toilet, you substitue for him a cable that looks exactly the same and works the same. Once he plugs it in it may even install a virus.
+
+
+-> Virus
+It would be to affect a lot of computers to use their computing power to break encryption. Eg. virus could use the resources when the "bot" computer is not being used and stop it right when someone comes back to work. This way it can stay invisible for a long time. What Miuel once said: "it is a different thing about not being hacked and not knowing that you are hacked".
+
+
+-> Social-engineering
+It is about convincing people to share with h4ck3r confidential data. It will never look like: "hey what is your password", but rather a nice guy from technical support who needs it trying to help you to solve a slow internet connection (that he caused previously with DDoS attack). It can be also pishing email saying that Rui Cordeiro had to make some changes in holidays and you MUST and QUICKLY approve them!!!
+
+
+
+Those methods arent all and they can be combined together to crack encryption. I dont know how but there is a way to get X% of the key using method A and another Y% using method B.
+
+
+---// przerwa //---
+
+
+3.4 PUBLIC KEY INFRASTRUCTURE (PKI)
+
+PKI means that there exists central institution that we all trust. This institution store, share, issue and provide information about public keys. This institution is called Certification Center. User A who wants to obtain a certificate must send his public key to the CA, followed with personal data. If the verification is success then the key will have attached Certificate which proves that it belongs to the user A. The certificate containes digital signature of the CA so everybody can verify its authenticity.
+
+But there is a problem here! There is A LOT of users of the internet. And of course not everyone needs a certificate, however some insitution that are not humans may need more than one. It is hard to have one centralized institution that will serve whole world. Other thing is that people tend to not trust its own government, how about trusting interantional institution somewhere on the other side of the planet? The solution to this are intermediate certificates, that could be thought as "Regional CAs". The way it works is that end-certificate (for server) is signed by intermediate one. The intermediate's certificate might be sign by another intermediate or straight by root CA. Root CA is signed by himself.
+
+				/*** SHOW EXAMPLE AND EXPLAIN ABOUT CA AND THAT CHAIN ***/
+
+In order root CA to sign intermediate CA, intermediate must comply with certain rules. Because intermediate certificates are issued only by trusted root certificates, and end-user certificates are signed only by trusted intermediate certificates, the level of trust and security of the entire PKI is increased. On the other hand, it is harder to verify some regional institution being hacked than having just one Central. If private key of any were stolen, h4ck3r could sigh anything with it and it would be recogized by browsers as true and can provide harm.
+
+Anytime your browser reaches a server it verifies its certificate and follow the chain of certificates. If in that chai there is untrusted certificate, web browser will show warning. This warning you may also see if you issue self-signed certificate. Since browser cant determine any trusted instituton involved and you could just lie, it wil display the warning.
+
+
+				/*** SHOW IT, SAME AS WITH DOCKER ***/
+
+This whole thing is done just to prevent Man In The Middle attacks. I will try to go from the bottom to today to show you why we need things.
+
+1. Person A tries to communicate with person B. In order to encrypt the message A needs to ask B for his pub_key_B. Then the key would be used to encrypt, after that B would decrypt the message_A and done. But...
+
+2. If there is Person_C in the middle, he might capture the message with B's key, and forward key_C to person A. Then message_A will be encrypted with pub_key_C, what means Man in the Middle can decrypt it, later on encrypt with pub_key_B and send to B like nothing happens. How to protect from it?
+
+3. This is why we need CA. B says to CA - "hey, here is my public key, please give me a certificate so everyone knows is me!". Then CA verifies B (his data, may call him by the phone, send email, token etc). Once this is done let us come back to point 2.
+
+2.1. If C sends his pub_key_C, A will take it, compare to CA database and see that they do not match and will know that someone intercept the connection. That in shortes is how it works and why we need it!.
+
+
+CERTIFICATE LIFECYCLE:
+Certificate Lifecycle contains of:
+- creation
+- certification
+- distribution
+- active usage
+- passive usage
+- key invalidation
+
+Every key has expiration date, often set by CA not the user. After it is passed it moves to the phase of passive usage. This means that owner can receive messages encrypted with this key but cant encrypt anything with his own private key. This way he may finish what was started before the date. Few months after key will be invalid and its certificate will be moved to "certificate revocation list". The problem here is that even so the certificate might be used if for instance h4ck3r will block the access to the server that contains the list with DDoS attack. 
+
+It is also important to remember that it is important to change key. How often it depends on how much it is used and how important is the data it encrytps. The more we encrypt, the more material for cryptoanalisys bad guy may gather, being the reason to break the key. 
+
+
+However how does A knows that B is B, and opposite?
+-> they could exchange their public keys.
+
+2. But how do we know that particular public key that B sends to A is keyB, not keyC from someone who put himself in the middle of that connection?
+-> maybe a certificate? Like each person needs to put his data on it, as it happens with self-signed certificates.\
+
+3. Well but how am I going to be sure that the person havent lie?
+-> and here we reach to something called Certificate Authority. An Authority that is suppose to confirm that A is A B is B and Miuel is Miuel.
+
+
+Done against MitM attacks:
+https://www.youtube.com/watch?v=8ItJ-VqYo_s
+
+Nice video about why we need certificates, with example of possible attacks and Kazachstan MitM attack.
+https://www.youtube.com/watch?v=x_I6Qc35PuQ
+
+
+//
+
+=======================
+Rozdzial 4: weakest link / podsumowanie
+
+The weakest link is usually unaware/stupid human. During the security meeting someone said there is very big number of people who clicked more than once for pishing email. Like seriously wtf XD. At that point I understood that those people simply do not give a fuck. And here we are with our best implementing security systems and Anitas not understanding anything they do in tech company.
+
+People tend to think that "I am safe because I have that encryption", but if you contradict its security it is the same as saying "I am safe because I have the best doors at home" and you leave them always open. Try to remember that the best way to save password is to remember it. Writing it in .txt file is not good idea, same as sticking them to your monitor. ALSO: remember that deleting encrypted data is the same easy as not-encrypted. So someone can harm us anyway. If you need to save it in .txt at least try to change some letters, move them -1 etc. It will give good protection.
+
+
+When it comes to passwords, nowadays we are more aware even within our unawareness to choose something with minimum 8 characters containing of big/small/numbers/special symbols. For many its hard to rember but check this out:
+							MniS!Mcc10$
+hard to remember?						
+					My name is Skrill3x! My concert cost 10$.
+
+This way we get password protected against "dictionary attack".
+
+Also good way would be to take your favourite sentence from the book and put is as a password. However here some most popular phrases from some songs or novels can also be included in dictionaires. So it would be better yet, to shift each letter one time left or right. The advantage here is length. The longer the password the harder to break it with brute-force.
+
+There is around 100 printable characters that can be used in the password and be repeated. If you use 8 characters that gives: 100^8 (that already gives bilions and bilions). For 20 characters its 100^20. Each time you update the power with 1 number its twice harder to crack the password.
+	
+
+If you think about implementing some encrypting system, the best bet would be to go with something that passed the test of time. It is also good to remember that the strength of this system cant rely on it being misterious but the key. The construction of the program should be simple, the more features it has, the more errors it can take.
+
+
+We may assume that there is no encryption algorythm is 100% safe. But we consider it safe if:
+. the cost of breaking the cipher is higher than the revenue from the data
+. the time necessary to break the cipher is too long. Imagine you can get her facebook password but to brute force it will take 10 years.
+. if the data is very important it will be good to update keys often so kryptoanalitycs can't get enough material to break it
+	. same with your password. If you update them often it is hard for someone to deduct what do you use :).
+. it is impossible to crack it with currently known means. For instance currently to bruteforce something takes years, but if new quantum-computers will come to play, it may take days or hours (its just an example, no idea how long).
+	
+	
+	
+	
+	
+	
+	
