@@ -318,6 +318,7 @@ Certificate Lifecycle contains of:
 - passive usage
 - key invalidation
 
+
 Every key has expiration date, often set by CA not the user. After it is passed it moves to the phase of passive usage. This means that owner can receive messages encrypted with this key but cant encrypt anything with his own private key. This way he may finish what was started before the date. Few months after key will be invalid and its certificate will be moved to "certificate revocation list". The problem here is that even so the certificate might be used if for instance h4ck3r will block the access to the server that contains the list with DDoS attack. 
 
 It is also important to remember that it is important to change key. How often it depends on how much it is used and how important is the data it encrytps. The more we encrypt, the more material for cryptoanalisys bad guy may gather, being the reason to break the key. 
