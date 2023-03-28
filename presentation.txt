@@ -282,6 +282,57 @@ Those methods arent all and they can be combined together to crack encryption. I
 
 ---// przerwa //---
 
+3.3 CRYPTOGRAPHIC PROTOCOLS
+Good algorythm for encryption is just 50% of the success, other 50% is proper usage and implementation. Cryptographic Protocols are created in order to not compromise algorythm's power. They can be understood as most efficient set of rules that should be applied when we try to implement the algorythm in real life. When designing the protocol, it is assumed that each side will cheat and protocol must prevent that from happen.  
+
+
+3.3.1 Key Exchange Protocols
+Key Exchange Protocols is set of rules and procedures that allow two sides to establish safe exchange of cryptographic keys. Those keys can be later used to secure communication. We can distinguish here:
+	.Diffie-Hellman
+	.RSA
+	.Elliptic Curve Cryptography (ECC)
+	.SSL / TLS
+	.IKEv2 that is used by IPSEC.
+
+
+3.2.2 Digital Signature
+The concept of digital signature is based on properties of private and public keys. Public key is widely avaliable and is usually used to encrypt data that is later decrypted with private key. However that operation may be reversed. Private_key_A may also encrypt data that will be later decrypted ONLY with public_key_A. This property allows us to verify that the sender is 
+who he claims to be. And its effectiveness is based on keeping the private key really private.
+
+						/**** put Joel's image here ****/
+
+How it works?
+So we have a document that we want to sign and send. First we will hash it with one-way hash function like SHA3-224/256/384/512. This will generate hash with 224(28)/256(32)/384(48)/512(64) bits(bytes). After that private key encrypt that hash. This final "product" is now send alongisde original text message to receiver who will use public key to encrypt "product" and later use the same SHA3 to hash text message. If both hashes are the same receiver knows that the message was not changed on the way.
+
+It is worth to mention that hash (usually) is much shorter than the original document, so also process of encryption happens faster than if we would like to encrypt whole full document.
+
+.o czyms tu jeszcze zapomnialem...
+
+		/****** opisz jak dziala to sha, co to jest kolizja itd. troche info jest na chat GPD *******/
+		
+VARIANTS:
+There are some variants of digital signature. The most interesting I found are:
+
+-> Unforgeable digital signatues (niepodrabialne podpisy cyfrowe)
+It is really impossible to prevent forgery but it might be detected. The idea here is to have few private keys that match original public key. Someone with great computing power could obtain wrong private key. Documents signed with it would still be valid but it is easy to prove forgery.
+
+-> Blind Signature (ślepy podpis)
+We talk about blind signature when person signing document does not know the content of it. To get such a result sender_A uses "blackout factor" that is a variable that is used to multiply original data. This changed data is then send to the Bank_B. B signs it without actually knownig what is it. A removes "blackout factor" and stays with orignal message being signed. There is some math beind it but I seen some youtube examples and it works. But more important - how B can sign something he doesnt know? 
+
+The solution to this is that A prepares "n" number of blinded documets. B pick up the one he wants(eg 7) to sign and ask to send "blakckout factor" of all the rest. If all this documents contain similar content, he signs doc 7. The bigger "n" the bigger safety + if cheating would be highly puhished it all should be enough.
+
+There is math behind it:
+https://www.youtube.com/watch?v=CcB9nH78Ths
+https://www.youtube.com/watch?v=F5Pi5qVrt0U
+
+3.3.3 Secret Sharing
+Here the key to decrypt the data is shared between multiple people.
+
+Protocol Secret Splitting contains of dividing secret key between ALL users, what means that if one will lose his part, the group will not be able to obtain data.
+
+Protocol Secret Sharing is very similar, with this difference that only certain amount of people who know the secret are necessary to decrypt the message. This reduces the risk of someone loosing his part.
+
+3.3.4 Other
 
 3.4 PUBLIC KEY INFRASTRUCTURE (PKI)
 
