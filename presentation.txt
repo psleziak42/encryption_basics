@@ -332,7 +332,31 @@ Protocol Secret Splitting contains of dividing secret key between ALL users, wha
 
 Protocol Secret Sharing is very similar, with this difference that only certain amount of people who know the secret are necessary to decrypt the message. This reduces the risk of someone loosing his part.
 
+
+
 3.3.4 Other
+-> Zero knowledge proofs (dowody z wiedza zerowa)
+This protocol is about proving something to someone without sharing the real information. It can be used to verify identity, safe data transmission (if sides do not trust each other or you want to prove sb that you own something eg. a program you want to sell without showing it and sharing your logic).
+
+For example when you sign a document you prove to everyone who has your private key that you know both prime numbers without sharing those numbers. Another example is protocol SSH. One of the ways to establish connection is to prove identity. Server uses public key to encrypt a number, receiver decrypts it and hash it and send to the server. Then server compares hashes and grant access. This way we proove our knowledge, without revealign the plain value of the number.
+
+
+-> Subliminal Channel (Kanał Podprogowy)
+Stenography was about hiding an information. Just hiding. Do you remember when I said that Germans were sending a message where one dot was actually a picture that was presenting underground message? There, whole thing was about another side not being aware of the of the issue.
+
+Subliminal Channel is known as modern stenography. Both sides - A and B - must have the same shared_private_symmetric_key. "A" sign the message. Signature protocol allows to put secret message in the digital signature. Other users can read the message or even check the signature, verification happens as usual. However user B, after he verifies the signature, uses the sme shared_private_symmetric_key to get underground message. As you can see in comparation with regular stenography, here the message is protected with a key. If someone realize about it he cant just read but must break the encryption.
+
+Anyway it is very hard to detect. This is the reason why there were created digital signature algorythms free from subliminal messages.
+
+
+-> Authentication protocol
+Authentication protocols let confirm the identity of the sides during communication.
+So basically for PAP(Password Authentication Protocol) user puts login and password, this is later compared with the database and if they match then access is granted. Others I found are:
+  -> CHAP (Challenge-Handshake Authentication Protocol) - server starts commuication with sending challenge that is randomly generated string. Client generates hash from challenge and password. Server compares both and grants access if they match. This way we never send password in plain text.
+  
+  -> The other ones I found is Kerberos and OAuth and FIDO /MOZE DOKONCZ, ale chyba zbyt duzo juz mam/
+
+
 
 3.4 PUBLIC KEY INFRASTRUCTURE (PKI)
 
@@ -390,6 +414,18 @@ https://www.youtube.com/watch?v=8ItJ-VqYo_s
 
 Nice video about why we need certificates, with example of possible attacks and Kazachstan MitM attack.
 https://www.youtube.com/watch?v=x_I6Qc35PuQ
+
+
+
+3.5 ALTERNATIVE CRYPTOGRAPHY
+3.5.1 Fizyka Kwantowa w Kryptografii
+3.5.1.1 O Kwantach
+
+
+3.5.1.2 Kryptografia Kwantowa
+3.5.1.3 Komputer Kwantowy
+
+
 
 
 //
