@@ -420,7 +420,33 @@ https://www.youtube.com/watch?v=x_I6Qc35PuQ
 3.5 ALTERNATIVE CRYPTOGRAPHY
 3.5.1 Fizyka Kwantowa w Kryptografii
 3.5.1.1 O Kwantach
+QUANTUM
+Quantum is a value by which a given parametre can change.
+When it comes to daily physics those values have linear change, or I should better say continuous change. When you drive your car the velocity goes from 0 - 100 or more 1km/h after 1km/h. When it comes to quantum physics, according to world's discoveries this rules does not apply, and an elementar particle can have energy of value X in one moment and 40*X in another one with nothing in between. Its like your car drive 20km/h and next moment 80. This thing was found by Max Plank and revealed in 1900 in Berlin (almost Poland :D).
 
+CORPUS-WAVE DUALISM - HEISENBERG'S UNCERTAINTY PRINCIPLE (DUALIZM KORPUSKULARO-FALOWY - ZASADA NIEOZNAZCONOSCI HEISENBERGA)
+There is very simple experiment that gives astonishing results. Imagine there is a pistol that shoots fotons or electrons (I mean very little particles). Imagine in front of them there is a board with 2 holes in the middle. And behid that there is a board. When it comes to regular particles (let us say even paint-ball) they will be partially block by middle board and the final outputwill give 2 lines. If we do the same thing inside the water, the waves will create a pattern of many lines.
+
+Now back to quantum wrold.
+
+Imagine we have that paint-ball pistol that shoots photons one by one. Normally you would expect 2 lines on the board. However this does not happen, they do act like a wave and leave many lines. So scientists wanted to know what is going on and started watching what happens with electron before it pass through 1st board. And then it acted like regular particle and left 2 marks at the 2nd board. No observation - many marks, observation - one mark.
+
+This leads to Heisenberg's Uncertainty Principle that says that we can't know more than one thing about the particle. It is impossible to know the position and momentum. Anytime we try to measure we loose what we previously knew, the particle acts like "it forgets" its previous state, or reset. 
+
+
+				/***** DAJ TU ZDJECIA I WYJASNIAJ *****/
+				
+				
+QUANTUM ENTANGLEMENT (splątanie kwantowe)
+
+SPIN
+
+
+Best Explanation
+https://www.youtube.com/watch?v=4fGJ5YL6-Hk
+
+Dlaczego pomiar niszczy stan kwantowy?
+https://www.youtube.com/watch?v=azdlv0p-MB0
 
 3.5.1.2 Kryptografia Kwantowa
 3.5.1.3 Komputer Kwantowy
