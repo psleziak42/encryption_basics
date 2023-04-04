@@ -433,25 +433,90 @@ Imagine we have that paint-ball pistol that shoots photons one by one. Normally 
 
 This leads to Heisenberg's Uncertainty Principle that says that we can't know more than one thing about the particle. It is impossible to know the position and momentum. Anytime we try to measure we loose what we previously knew, the particle acts like "it forgets" its previous state, or reset. 
 
-
-				/***** DAJ TU ZDJECIA I WYJASNIAJ *****/
-				
-				
-QUANTUM ENTANGLEMENT (splątanie kwantowe)
-
-SPIN
-
-
 Best Explanation
 https://www.youtube.com/watch?v=4fGJ5YL6-Hk
 
 Dlaczego pomiar niszczy stan kwantowy?
 https://www.youtube.com/watch?v=azdlv0p-MB0
 
+
+				/***** DAJ TU ZDJECIA I WYJASNIAJ *****/
+				
+				
+QUANTUM ENTANGLEMENT (splątanie kwantowe)
+I was  trying to watch some videos about it to be able to explain it better, but at the end what we can take for granted is that particles are connected with each other and change of the state of one makes all of them to change the state at the same time without delay.
+
+				/***** POKAZ ZDJECIE SPLATANIA ******/
+
+
+POLARISATION and SPIN
+POLARISATION - each foton creates electromagnetic wave that oscilates perpendicular to its movement. Those waves oscilate in different dirrections. So if we have vertical polarisated sunglasses only photons with vertical polarisation will pass through the filter.
+
+https://www.google.com/search?q=polaryzacja&client=ubuntu&channel=fs&sxsrf=APwXEddaY7A1069R9H0KR7IO1Z-vi5OKlA:1680523522478&tbm=isch&source=iu&ictx=1&vet=1&fir=-P6cZ7M7n1FJ8M%252C6GrAKpLlpW0eyM%252C_%253B_WBdDsTgP6taJM%252CA2NA29ek1bRAqM%252C_%253BlyZj_cAndpxDYM%252CS8hcE0k9E_tMHM%252C_%253BoZqXps_lewuD0M%252CV5-Q5ZZmOlNqTM%252C_&usg=AI4_-kTE6mOrjWrezfF4EYNW2csd26fIcw&sa=X&ved=2ahUKEwir9d_81Y3-AhVEUaQEHa25CHoQ_h16BAgtEAE#imgrc=_xgzyYEm6sCmNM
+
+SPIN - A particle rotates around is own axis. Simplifying we can say that SPIN is angular momentum of a particle. 
+
+
 3.5.1.2 Kryptografia Kwantowa
+Quantum Cryptography is basing on polarisation of the photon. Each photon when moving in space creates an electromagnetic wave that is perpendicular to is movement, however the direction of the wave varies. It may be horizontal, vertical or have any other angle.
+
+					/** zdjecia fali z wikipedii **/
+					
+So now imagine we have two people who wans to securely send a message: A and B.
+
+First thing A will do is to send some number of photons that captured by B will later create our key (it might be worth to mention that it took a while when scientists invented a machine that may shoot just 1 photon. Usually when you turn on the lantern, there is a lot of them). After the photon is launched it passes through Polarizator chosen by A. Then B randomly pick up polarizators in order to receive what A sent. After this proces is done they need to talk to each other (email, physically, by phone) and exchange the information about polarizators they used. If B chose different polarizator than A then this photon is discarded. The remaining ones are chosen to create the key.
+
+			/*** put the picture here from the video when they exchage ***/
+
+Ok so now we imagine a person C who tries to spy on us.
+
+1. Similar to B he does not know the polarisation.
+2. Each time we try to measure the state of the particle, we lose the previous state. This means that if C use incorrect polarisator, the original particle sent by A wont be correct.
+3. After the process is done A and B call each other to talk about polarizators they choose and discard wrong ones. There is a way that C will capture some of the photons correctly but he wont know which one were discarded, which one kept or even if they decided to try another key because the number that was captured correctly was too low.
+3a. Polarization of the photon may be affected by the evironment. In the beginning the inaccuracy rate was 20%, now I think it is 8%. So 8% of the photons may be read wrong by B if there is more than key is repeated as it may mean somebody was spying.
+
+The ratio was lowered from 20% to 8% because in 2010 somebody managed to compromise the system. They were listening to the key, creating 19,7% of errors.
+
+
+As a curiosity I may add that in 1999 data using quantum was already transfered for 48 km. In 2002 its 60km, 2003 100km and 2006 it was 144 km. In 2017 Chinese managed to send quantum signal to the satelite, 1200 km away. ChatGPD says that currently the record is few thousand kms.
+
+
+Wytnij stad zdjecia i opisz jak to dziala.
+https://www.youtube.com/watch?v=uiiaAJ3c6dM
+
+Tez fajny:
+https://www.youtube.com/watch?v=8hNQyTdNil4
+
+
 3.5.1.3 Komputer Kwantowy
+Humanity is reaching the limits of standard computers. What a computer is today is a buch of 0s and 1s that correspond to 0 - there is no electricity, 1 there is. A thing responsible for turning current flow on and off(prevent electrons on passing on another side) is called transistor. With time transistors were gettig smaller and smaller. This is why constantly get more speed with less size or more speed with the same size because we can put more and more transistors on the same surface. But it reaches the limit. Currently the size of transistors are 14 nm. Just to tell you: red cell is 500x bigger. Being the size of just few atoms they cant get smaller because electros could get to the other side of transistor with process called quantum tunneling - sort of teleportation.
+
+In regular computers we have bits. As mentioned 0 - no current, 1 - current. In quantum computers we have qubits, that is quantum equivalent of a bit. Now qubit can be in any state. The easiest example would be photon: it can be polarized vertically = 1 or horizotally = 0. But it can be also polarized in any proportions of both states at once eg 10% vertiaclly and 90% horizontally. This is called superposition. As long as it is unobserved particle is in any possible state, so in our 0-1 world it can be 0,01 or 0,54 or 0,0000000134908023 AT THE SAME TIME. Once we measure it it chooses a permanent state, either 0 or 1.
+
+Now. 4 bits in regular computer will have 16 different positions but we can access only 1 at the time. 4 Qubits can be in all of this 16 positions at the same time. 200 qubits will be then in 2^200 possible positions at the same time.
+
+In regular computer logic gates get certain input and produce one output.
+
+In quantum computers we have quantum gates that uses quantum entanglement. Again: that means that measuring one entangeled qubit, we can deduct properties of its parters. By quick manipulation of qubits computer is able to find/guess what you wanted. I put here guess because from investigation i did it looks a bit like its reading in our minds.
 
 
+Quantum Computers:
+	- most likely they wont replace regular computers but will work alongisde them. If you process something with quantum computer, regular one may still be necessary to retrieve the results.
+	- to watch youtube and for personal use we will still have piece of shit lenovo, but to go to the space we as humanity will use quantum computers.
+	
+	- their advantage is in searching huge databeses. The speed is sqrtN comparing to N with regular computers
+	
+	- can be veery useful in medicine, creating simulation of molecules
+	
+	- cryptography as we spoke
+	
+	- at this time it is hard to say where it will bring us and how it will affect our lifes!
+
+
+https://www.youtube.com/watch?v=JhHMJCUmq28&t=10s
+
+
+Another topic I wanted to touch here is DNA cryptography but no time for it so do your research. Just know it exists and molecular informatics is also very powerfull.
 
 
 //
