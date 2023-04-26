@@ -1,7 +1,11 @@
+1. 
 It all started with scripture. In Europe majority of people did not know how to read and write untill XV-XX century. In XV century Gutenberg invented printer and this started the age of printing press and made text accessible for general public. But it is estimated that only in XX century over 80% knew how to write and read. But anyway - even in Ancient times there was already a need to hide important messages not only in the pocket, or under the belt, to protect it from being read after messenger was captured by the enemy. And here we introduce:
 
 
 
+
+
+2.
 -> STEGANOGRAPHY - is about HIDING THE MESSAGE.
 The first "steganographed" message is dated to be sent in V Century BC by Greek Demaratos. He warned King of Sparta about upcoming war with Persian carving the message on the piece of wood that was covered with wax. This way it reached the destination unnoticed, however it took a while till Leonidas wife figured out that there must be something into it. The rest of the story we know.
 
@@ -11,6 +15,9 @@ Obviously the disadvantage of this method is that once captured, the content is 
 
 
 
+
+
+3.
 -> CRYPTOGRAPHY - is about HIDING THE CONTENT OF THE MESSAGE, not the message itself.
 In ancient times kryptography contained of two types: shifting and/or substituing. Shifting means simply to switch letters in the sentence (it is called anagram). So:
 
@@ -19,7 +26,6 @@ ANAGRAM: "Eofcef"
 
 First known device was invented in V BC, and it was called "scytale". It contained of cylinder and a belt wound up on it. Then the message was written on the belt. Now the messenger could wear the belt with the message inside, and the receiver to read it had to have a cylinder with the same or very similar size. 
 
-/zdjecie scytale/
 
 Substituing on another hand was to change letters. The most popular was Cesar's Cypher that changed every letter of a sentence +3. Cyphers that assign one letter/digit/symbol for one letter of the plain text are called MONOALPHABETIC CIPHERS. Below example:
 
@@ -30,6 +36,9 @@ When it comes to Cesar's, the layout was always the same (+3). So someone who kn
 
 
 
+
+
+4.
 -> CRYPTOANALISIS and the end of MONOALPHABETIC ciphers
 
 Al-Kindi is known as the "father" of cryptoanalisis. He invented "chosen-plaintext attack". The idea goes like that:
@@ -42,7 +51,10 @@ Nowadays this method will not work, because we use hash functions that give the 
 
 
 
--> IMPORTANCE OF THE ABOVE
+
+
+5.
+-> IMPORTANCE OF THE ABOVE - history about 1WW and French fighting Gremans
 II Century BC, Greek Polybius (Polibusz) created a 5x5 table that for every letter assigned 2 numbers. "A" was 11, "B" was 12. Sounds farily simple. In 1st WW when Germans were outnumbering French. Their strategy was to concentrate a lot of soldiers in certain point and break the front line as far as they can to finally capture Paris. To succeed French had to know where enemy is going to strike, but at that particular time they had to keep a bit of soldiers on the long front line before attack happen. The way to predict was to listen to radio correspondency. Although they were capturing some informations, all of it looked like:
 		
 					XAXFX AGFDXXA DXGGX FAFFA XGAGX AVDFA GAXFX etc.
@@ -54,13 +66,17 @@ Out of this story we can take few principals that are still important nowadays a
 	-> Usually its is human factor that is the weakest link. Even nowadays when we have all that difficult mathematical operation behind loging in to the bank, what will it do if you password is "1234abc" (dictionary-attack) or simply sticked to your monitor so anyone can get it?
 
 
-/zdjecie tablicy/ 
 
 
+
+6.
 -> FURTHER DEVELOPMENT OF CRYPTOGRAPHY
+
 Since 1900 BC when we observed that Egyptian were doing some word-play to add more pathos when writing history of dead Pharaons, following 3500 years did not bring much on this field, from what already presented. Al-Kindi broke monoalphabetic cipher in IX AD but many people in Europe for a long time after believed its non-breakable. For few hundred years cryptography was rather treated as a intellectual entertainment than something of high importance.
 
 It all changed when countries in Europe started emerging and diplomacy took place. Ambassadors, working also as spies, needed a way to securely send messages. Because monoalphabetic ciphers were not safe anymore, the new methods emerged. We reach the era of "unbreakable ciphers".
+
+
 
 -> homophonic cipher
 	every letter of plaintext can have many substitutes. The idea in medival times was to give for each letter as many substitutes as frequent is its % occurence in the language. Eg. if letter tend to appear 7% of times it would have 7 substitues. So:
@@ -69,25 +85,29 @@ It all changed when countries in Europe started emerging and diplomacy took plac
 	But frequency of appearance of single letters is not the only thing that distinguish the language. Letters come in pairs and threes, but also whole words repeat each other eg. "with", "but", "because". And those hints were good enough to break this code with time and humanity moved forward.
 	
 
+
+
+
+7.
 -> polyalphabetic cipher
-	In the most simple words its many monoalphabetic ciphers used together. The first known example is "Alberti's Shield". It contains of two round shields that were put one inside another. The inside one could move, so there is now at least 25 possibilities to encrypt the message. Of course in order this to work, everyone had to have the shield and know the starting position.
-	
-				/// ZDJECIE TARCZY ALBERTIEGO ///
+	In the most simple words its many monoalphabetic ciphers used together. The first known example is "Alberti's Shield". It contains of two round shields that were put one inside another. The inside one could move, so there is now at least 25 possibilities to encrypt the message. Of course in order this to work, everyone had to have the shield and know the starting position.	
 				
 				
 	The next one was invented 50 years later by Johannes Trithemius. He created a table with 26 alphabets, each starting from the next letter - so 1st is: ABC...Z 2nd is: BCD...A, last is: ZAB...Y. The idea was to take 1st letter and cypher it with 1st alphabet, 2nd with 2nd itd. That would protect the secred text from cipher-text only attack (frequency attack). However if someone knew the logic behind it, it was easy to break.
 	
-	
-				/// TABULA RECTA I SZYFR VINEGRETA ///
 				
 	To prevent this, another half of the century later, Blaise de Vigenere proposed to change the order of secred alphabet. This way knowledge of how system work was not enough to decrypt the message. It was necessary to know the KEY. And the key could be a simple word known by both sides: eg. word "secret" would mean to use 19th alphabet to cipher 1st letter, 5th for 2nd, 3rd for 3rd etc. Vigenere also idea of "AUTOKEY". The receipient had to know only how to read the 1st letter that became the number to look for 2nd, then that 2nd became number to find 3rd etc. Vinaigrette cipher was broken only in XIX century, almost 300 years later by Charles Babbage. The most important here was to distinguish the length of the used key. This could be done by gathering enough secred texts (cipher-text only attack).
 	
 
+
+
+8 - 10.
 -> Diagraph Ciphers in short divided plaintext into pairs(diagrams) and then replace each pair with another pair of characters(disgrams), concerning some rules. The first in history diagraph cipher was called "Playfair" from the name the name of its inventor. The table was 5x5 and could be filled with key-word on the beginning. The following letters were in alfabetic order. 
 
-				/// PLAYFAIR CYPHER ///
-				
 
+
+
+11.
 -> IIWW - ENIGMA
 Enigma was a typewriter with bonus. In order to understand, try to imagine 2 typewriters coupled together with wires the way that when you press "a" on the 1st one, eg. key "f" is triggered on another one. This way we would get simple monoalphabetic cipher. Enigma itself was one typewriter with moving disks. The position of those disk decided what output one is going to get. The disks worked like car counter. When first one did full turn, 2nd one moved one position etc. The thing was that there were more disks than slots. Disks could have different sizes and contain not only letters. The final results depended on:
 	. what disks were chosen
@@ -95,18 +115,29 @@ Enigma was a typewriter with bonus. In order to understand, try to imagine 2 typ
 	. what was starting position
 If you considered that they are fixed and each one contain of 26 same symbols, then for 5 disks you would get 26^5 that gives close to 12 000 000 combinations.
 
+
+
 For a receiver to decrypt the message, he had to know what disks and in what position were used. Germans had "daily keys" that were distributed every day via secure telegraph lines (now, secure means that nobody, at any place has physical access to it. Having physical access would mean that one can listen to the morse code being sent there. To make it secure, those strategic connections were build over hard to access terrain and also protected by patrols). Many times, on the beginning of the message there was another key repeated twice. The daily key was used to decrypt it, then someone was changing disks according to the new one and only then could read the final message. This yet made decryption harder because each message sent the same day could have different settings.
 
+
+
+
+
+12.
+HOW ENIGMA WAS UNCODED?
 -> so if it was impossible, how they managed to break it?
 There were few hints that were good to start with: on the beginning of each secret message there was a key repeated twice. Germans are also known for following the rules, so each message had the same shape and formalized character. Also the ability to decrypt message with the same one that encrypt text made it impossible to have plaintext letter being equal on secred text. This way scientists could search for some key words that almost sure had to appear like: attack (angriff). If any letter from word ANGRIFF would appear on the text, then we know it cannot be there and move to the next position. This is called negative pattern based cryptanalysis. So in general, the method behind breaking Enigma was to find probable words in secred text to later figure out the key basing on relation plaintext - secred text. 
 
-			/// daj zdjcie 1.9 z stony 37 ///
-			
-			
+	
+
+
+
+13.			
 -> NOWADAYS and the war about strong standards
 
 
 When computers came to play we could "emulate" any physical device, and even more - we could virtually create ones that could not be constructed in real world. This means that all the physical limitations were gone. We still shift elements of the plaintext to get secred text, however now we do not encrypt letters, but 0s and 1s.
+
 
 
 DES - Data Encryption Standard - was firstly intruced as "Demon" that was short from "Demonstration" with 128bit key. It was block cipher, that means it was encrypting blocs of data of certain length and giving as an output encrypted block of the same length.
@@ -116,10 +147,15 @@ DES - Data Encryption Standard - was firstly intruced as "Demon" that was short 
 In 1976 DES was accepted, but with 56bit key. Every bit less reduce cipher security by 50%. So just imagine the difference between 128 and 56bits. DES was symmetric-key cryptography algorithm. This means that the same secret key is used both for encryption and decryption of the data. The sender and receiver of the data must both have access to the same key in order to communicate securely with each other. And this again created a problem - how to safely distribute a key? 
 
 
+
+
+
 ASYMETRIC CRYPTOGRAPHY - RSA
 Cryptographic system free from the problem of key distribution seemed impossible to achieve. Untill now the key to encrypt and decrypt had to be inaccessible. Ron (R)ivest, Adi (S)hamir and Leonarda (A)dleman similar to Whit Diffie and Marty Hellman (Diffie-Hellman) proposed that key used to encrypt should be given to the public access. They created the system with 2 keys - private and public. Public one could be distributed freely. Private one must be kept secret. Public key is used to encrypt the data that can be decrypted only with corresponding private key. Private key is used for decryption, but also can be used to decrypt message - this feature is known as "Digital Signature". Anyone with public key can decrypt the signature and knowing that it is impossible to create signature without having correct private key, its owner cant deny the signature. Theory was good, but mathematics were necessary to make it work.
 
-// to chyba trzeba pominac
+//---
+The part below is not finished, not enough time to develop the topic and present it. But I ll leave it here so for those who have no idea about what happens behind the hood it might be at least something to start with :).
+//---
 
 RSA and big prime numbers:
 .To create public key first we need to multiplicate two big, randomly taken prime numbers [p, q] (and to give you idea: the biggest known prime number has 82,589,933 digits. The book I wrote has 600 000 characters and took around 200 pages A4, 414 book pages). Lets call that number "n". 
@@ -130,37 +166,175 @@ RSA and big prime numbers:
 
 The next step is to choose another big number with certain propertiest. It is encryption key (private key). Public key is created by multiplying private key and the multiplication of two big randomly taken prime numbers. Hence private key is easy to get if we know prime numbers used. Those numbers are known for the owner of the keys, however cryptoanalyst can get it only by factorization of that number. And that is not impossiblem however very hard to do, 
 
-//
+
+
+
+//////////////////////////
 
 
 
 
-=======================
+
+14.
+3.5 ALTERNATIVE CRYPTOGRAPHY
+
+16.
+QUANTUM
+Quantum is a value by which a given parametre can change.
+When it comes to daily physics those values have linear change, or I should better say continuous change. When you drive your car the velocity goes from 0 - 100 or more 1km/h after 1km/h. When it comes to quantum physics, according to world's discoveries this rules does not apply, and an elementar particle can have energy of value X in one moment and 40*X in another one with nothing in between. Its like your car drive 20km/h and next moment 80. This thing was found by Max Plank and revealed in 1900 in Berlin (almost Poland :D).
+
+
+
+
+
+17.
+CORPUS-WAVE DUALISM - HEISENBERG'S UNCERTAINTY PRINCIPLE (DUALIZM KORPUSKULARO-FALOWY - ZASADA NIEOZNAZCONOSCI HEISENBERGA)
+There is very simple experiment that gives astonishing results. Imagine there is a pistol that shoots fotons or electrons (I mean very little particles). Imagine in front of them there is a board with 2 holes in the middle. And behid that there is a board. When it comes to regular particles (let us say even paint-ball) they will be partially block by middle board and the final outputwill give 2 lines. If we do the same thing inside the water, the waves will create a pattern of many lines.
+
+Now back to quantum wrold.
+
+Imagine we have that paint-ball pistol that shoots photons one by one. Normally you would expect 2 lines on the board. However this does not happen, they do act like a wave and leave many lines. So scientists wanted to know what is going on and started watching what happens with electron before it pass through 1st board. And then it acted like regular particle and left 2 marks at the 2nd board. No observation - many marks, observation - one mark.
+
+This leads to Heisenberg's Uncertainty Principle that says that we can't know more than one thing about the particle. It is impossible to know the position and momentum. Anytime we try to measure we loose the state we previously knew, the particle acts like "it forgets" its previous state, or reset. 
+
+Best Explanation
+https://www.youtube.com/watch?v=4fGJ5YL6-Hk
+
+Dlaczego pomiar niszczy stan kwantowy?
+https://www.youtube.com/watch?v=azdlv0p-MB0
+
+
+
+	
+
+18.				
+QUANTUM ENTANGLEMENT (splątanie kwantowe)
+I was  trying to watch some videos about it to be able to explain it better, but at the end what we can take for granted is that particles are connected with each other and change of the state of one makes all of them to change the state at the same time without delay.
+
+
+
+
+
+20.
+POLARISATION and SPIN
+POLARISATION - each foton creates electromagnetic wave that oscilates perpendicular to its movement. Those waves oscilate in different dirrections. So if we have vertical polarisated sunglasses only photons with vertical polarisation will pass through the filter.
+
+SPIN - A particle rotates around is own axis. Simplifying we can say that SPIN is angular momentum of a particle. 
+
+
+
+
+
+19 - 25.
+QUANTUM CRYPTOGRAPHY
+Quantum Cryptography is basing on polarisation of the photon. Each photon when moving in space creates an electromagnetic wave that is perpendicular to is movement, however the direction of the wave varies. It may be horizontal, vertical or have any other angle.
+
+					
+
+So now imagine we have two people who wans to securely send a message: A and B.
+
+
+22, 23.
+First thing _A will do, is to send some number of photons that captured by B will later create our key (it might be worth to mention that it took a while when scientists invented a machine that may shoot just 1 photon. Usually when you turn on the lantern, there is a lot of them). After the photon is launched it passes through Polarizator chosen by _A. Then _B randomly pick up polarizators in order to receive what A sent. After this proces is done they need to talk to each other (email, physically, by phone) and exchange the information about polarizators they used. If B chose different polarizator than A then this photon is discarded. The remaining ones are chosen to create the key.
+
+
+
+
+
+24.
+Ok so now we imagine a person C who tries to spy on us.
+
+1. Similar to B he does not know the polarisation.
+2. Each time we try to measure the state of the particle, we lose the previous state. This means that if C use incorrect polarisator, the original particle sent by A wont be correct.
+3. After the process is done A and B call each other to talk about polarizators they choose and discard wrong ones. There is a way that C will capture some of the photons correctly but he wont know which one were discarded, which one kept or even if they decided to try another key because the number that was captured correctly was too low.
+3a. Polarization of the photon may be affected by the evironment. In the beginning the inaccuracy rate was 20%, now I think it is 8%. So 8% of the photons may be read wrong by B if there is more than key is repeated as it may mean somebody was spying.
+
+
+*The ratio was lowered from 20% to 8% because in 2010 somebody managed to compromise the system. They were listening to the key, creating 19,7% of errors.
+
+
+As a curiosity I may add that in 1999 data using quantum was already transfered for 48 km. In 2002 its 60km, 2003 100km and 2006 it was 144 km. In 2017 Chinese managed to send quantum signal to the satelite, 1200 km away. ChatGPD says that currently the record is few thousand kms.
+
+
+
+
+
+26 - 28.
+QUANTUM COMPUTER
+Humanity is reaching the limits of standard computers. What a computer is today is a buch of 0s and 1s that correspond to 0 - there is no electricity, 1 there is. A thing responsible for turning current flow on and off(prevent electrons on passing on another side) is called transistor. With time transistors were gettig smaller and smaller. This is why constantly get more speed with less size or more speed with the same size because we can put more and more transistors on the same surface. But it reaches the limit. Currently the size of transistors are 14 nm. Just to tell you: red cell is 500x bigger. Being the size of just few atoms they cant get smaller because electrons could get to the other side of transistor with process called quantum tunneling - sort of teleportation.
+
+In regular computers we have bits. As mentioned 0 - no current, 1 - current. In quantum computers we have qubits, that is quantum equivalent of a bit. Now qubit can be in any state. The easiest example would be photon: it can be polarized vertically = 1 or horizotally = 0. But it can be also polarized in any proportions of both states at once eg 10% vertiaclly and 90% horizontally. This is called superposition. As long as it is unobserved particle is in any possible state, so in our 0-1 world it can be 0,01 or 0,54 or 0,0000000134908023 AT THE SAME TIME. Once we measure it it chooses a permanent state, either 0 or 1.
+
+Now. 4 bits in regular computer will have 16 different positions but we can access only 1 at the time. 4 Qubits can be in all of this 16 positions at the same time. 200 qubits will be then in 2^200 possible positions at the same time.
+
+In regular computer logic gates get certain input and produce one output.
+
+In quantum computers we have quantum gates that uses quantum entanglement. Again: that means that measuring one entangeled qubit, we can deduct properties of its partners. By quick manipulation of qubits computer is able to find/guess what you wanted. I put here guess because from investigation i did it looks a bit like its reading in our minds.
+
+
+Quantum Computers:
+	- most likely they wont replace regular computers but will work alongisde them. If you process something with quantum computer, regular one may still be necessary to retrieve the results.
+	- to watch youtube and for personal use we will still have piece of shit lenovo, but to go to the space we as humanity will use quantum computers.
+	
+	- their advantage is in searching huge databeses. The speed is sqrtN comparing to N with regular computers
+	
+	- can be veery useful in medicine, creating simulation of molecules
+	
+	- cryptography as we spoke
+	
+	- at this time it is hard to say where it will bring us and how it will affect our lifes!
+
+
+https://www.youtube.com/watch?v=JhHMJCUmq28&t=10s
+
+
+
+
+
+29.
+Another topic I wanted to touch here is DNA cryptography but no time for it so do your research. Just know it exists and molecular informatics is also very powerfull.
+
+
+
+
+//////////////////////////
+
+
+
+
+30.
 THEORY BEHIND CRYPTOGRAPHY:
 
+31.
 Methods of breaking cipher texts:
 
 -> Brute-force attack (łamanie metodą pełnego przeglądu)
 This metods relies on trying many keys until the solution found makes sense. Performance depends on the computing power of the computer. The more keys/time we are able to try the bigger the chance to succeed. This is why it is important to use long key. If there is too many combinations avaliables brute-force attack stops being usefull.
 
+
 -> Ciphertext-only attack (Łamanie z szyfrogramami)
 Cryptanalyst has access only to cipher-texts created with the the same algorythm. Basing on them he must determine the key used to encrypt the message or or try to decrypt at least some part of the message. 
+
 
 -> Known plain-text attack (łamanie ze znanym tekstem jawnym)
 Cryptoanalyst knows some part of the cipher-text message, for example that it starts always from "Dear Sir" and ends with "Best Regards" and basing on this he is suppose to find a key/algorithm used to encrypt messages.
 
+
 -> Chosen plain-text attack (łamanie z wybranym szyfrem jawnym)
 In this case cryptoanalyst uses plain-text of his choise to encrypt it with the algorythm. In this case he can choose the plain-text to get more informations about the key. English used this method to break Enigma. They act in certain way to force Germans to send certain cipher-texts, that later on they caught. But this one is not only about history. This method is used nowadays against data bases. Attacker puts certain information to databses and compare cipher-texts. To put data into database is usually not difficult - anyone can register and fill shopping cart.
+
 
 -> Chosen cipher-text attack (łamanie z wybranym szyfrogramem)
 Attacker have access to ciphertext and corresponding plain-text and basing on it he needs to find authomatic decryption method. This is used agains systems with public key. Attacker can choose plain-text, get widely-avaliable public key and use it to encrypt the text. Then the attacker can use this info to figure out private key.
 
 
-SOMETHING MORE ADVANCED:
-Linear and Differential Cryptoanalysis.
 
 
+
+32.
 OTHER METHODS more H4CK3RM4N
+
+33.
 ->DDoS - Distributed Denial of Service Attack
 It is type of attack when large number of computers try to get access to the server at the same time. To establish a connection client talks to server, server back to client and then client must talk back again to server. But that last answer never comes. For every client arriving server must save some resurces needed to serve the connection. H4ck3r using the technique of IP Spoofing (that is creating fake IP addresssess) creates another "half-open" connections, server reserves resources and soon he is out of them, causing the webpage to slow down or not working at all.
 
@@ -170,12 +344,19 @@ According to ChatGPD, DDos itself is can be harmful to encryption in a moment wh
 
 
 
+
+
+34.
 -> Replay Attack (atak przez powtorzenie)
 Is about capturing a message sent to the server and using it later in time to get unauthorized access. For example hacker can get username and password, and use it to his advantage to get access to victims account. Other thing could be to obtain a packet containing data about electronic payment like credit card number, amount, date and later send it again to do unauthorized transaction.
 
 To protect from it, random tokens, timestamps or nonces (one time values) are used inside the message. This way captured message is useless. 2FA is also good solution.
 
 
+
+
+
+35.
 -> Dictionary Attack (atak słownikowy)
 I think around 2008 when myspace was the most popular social media, somebody managed to break into their database and download millions (billions and billions :D) passwords of different users. At that time, they were all in plain text. From that moment on it became mandatory to use at least 8 different symbols everywhere when signing up. According to "darknet diaries" that huge list of passwords is kept in Kali Linux on default. But I also seen it when studying TCM academy. Its huge.
 
@@ -184,6 +365,10 @@ So dictionary attack is about using that database and just trying its entries on
 It is important to notice that this attack can be also executed agains passwords that are hashed. Nowadays if you manage to obtain the database entries you gonna see only hash. However knowing the hashing algorytm, you can use dictionary and compare received hash. If they match job is done.
 
 
+
+
+
+36.
 -> Side Channel Attack (atak kanałem bocznym)
 This type of attack is realated to obtaining relevant informations from physical components - such as power consumption, electromagnetic radiation or sound emissions. For example radiation emitted by a cable can contain some information that can be read from a very long distance using certain devices. And we talk here even about connection between your computer and monitor. To protect from it one should use shielded cables (kable ekranowane) or optical fiber that does not create elecromagnetic field. Another example (I think) could be capturing car-opening signal. I seen the video on youtube when the guy was able to catch frequency and then reproduce it to open a car/garage.
 
@@ -195,6 +380,8 @@ Another way described in the book is to analyse power consumption by a device. T
 
 
 
+
+37.
 -> MitM - Man in the Middle (atak z wnętrza systemu)
 As the name says it is someone in the middle of 2 nodes that think they communicate directly. This way attacker can capture data being transferred and filter it to find sensitive information like credit card details, logins, passwords, or manipulate it. MitM attacks can be carried out in several ways, including intercepting wireless network traffic, manipulating Domain Name System (DNS) resolution, or using malware to infect a user's device and monitor their internet traffic.
 
@@ -203,6 +390,10 @@ To defend agains MitM all the connection should be encrypted and we need to make
 One thing important to mention here is to be carefull when using public wifi. According to my findings, public networks are often unencrypted, that means anyone with certain skills and tools (i bet wireshark for instance) can easily read our traffic. Public networks arent often mantained by security professionals and may not have the latest security patches or updates. So attackers can exploit its vunerabilities.
 
 
+
+
+
+38.
 -> MitM - Meet in the Middle (spotkajmy się w środku?)
 awesome video: https://www.youtube.com/watch?v=eNJCo3lSp-E
 This attack is aimed towards "double" encryption systems, like doube DES - that use key of the same length twice. Meet in the middle was pretty hard to understand for me so let me put it in parts:
@@ -232,6 +423,8 @@ TDES)	1MB = 5 - 50 sec!!!
 
 
 
+
+39.
 -> BIRTHDAY ATTACK (atak urodzinowy)
 Interesting thing happened when we went for a dinner with Double Nuno. Diogo and Henrique discovered that they have birthday on exactly the same day. There is mathematical paradox saying that in a group of 23 people, the probability that 2 people will have birthday the same day is bigger than 50%, what might seems strange considering that there is 365/356 posibilities. 
 
@@ -247,12 +440,13 @@ where:
 	N - hash length
 
 so for 80bit hash we get:
-	k = sqrt2^80 => k = a lot. But still, back in time SHA-1 was broken with this attack and the standard rised
+	k = sqrt2^80 => k = a lot. But still, back in time SHA-1 was broken with this attack and the standard rised.
 	
 	
 To protect agains this scenarios is good to use functions with long output hash. Current standard is SHA-3.
 
 *collision is a situation when 2 different inputs produce the same output 
+
 
 
 
@@ -264,40 +458,66 @@ I couldnt get that one very well, but the idea is that attacker can convert algo
 It is an attack that try to find weak spot in mathematical theory of the encrypting algorythm. For instance for RSA it would be to find a method of quick factorization of lagrge numbers.
 
 
+
+
+40.
 -> Kleptography - back doors (Kleptografia - tylne drzwi)
 Many examples: producer of the encryption algorythm installs there back doors. As we discussed previously NSA wanted to (or did) implement back doors in DES to get quick and easy access to encrypted data. This could also be related to physical devices like something between keyboard and CPU that captures every input and saves it after computer is power off. Not sure if everyone is avare but there are cables that look like regular USB/charger that actually are used by RED Team Hackers to get data. Someone works in the library, goes to the toilet, you substitue for him a cable that looks exactly the same and works the same. Once he plugs it in it may even install a virus.
 
 
+
+
+
+41.
 -> Virus
 It would be to affect a lot of computers to use their computing power to break encryption. Eg. virus could use the resources when the "bot" computer is not being used and stop it right when someone comes back to work. This way it can stay invisible for a long time. What Miuel once said: "it is a different thing about not being hacked and not knowing that you are hacked".
 
 
+
+
+
+42.
 -> Social-engineering
 It is about convincing people to share with h4ck3r confidential data. It will never look like: "hey what is your password", but rather a nice guy from technical support who needs it trying to help you to solve a slow internet connection. It can be also pishing email saying that Rui Cordeiro had to make some changes in holidays and you MUST and QUICKLY approve them!!!
 
 
-
+!!
 Those methods arent all and they can be combined together to crack encryption. I dont know how but there is a way to get X% of the key using method A and another Y% using method B.
 
 
 
 
-3.2 TYPES AND MODES OF ENCRYPTION (mentioned here deal with symmetric cryptography)
-AES, DES, 3DES, IDEA, Blowfish and any other encryption algorythm can work in many modes. So it is not that you picked up AES and you are good to go. It is important to choose correct mode depending on environment the algorythm it is going to work with.
- 
+//////////////////////////
 
-3.2.1. Block Cipher
+
+
+
+43.
+TYPES AND MODES OF ENCRYPTION (mentioned here deal with symmetric cryptography)
+AES, DES, 3DES, IDEA, Blowfish and any other encryption algorythm can work in many modes. So it is not that you picked up AES and you are good to go. It is important to choose correct mode depending on environment the algorythm it is going to work with.
+
+
+
+
+-> BLOCK CIPHERs
 As the name suggest, plain text is divided into blocks of certain size and those blocks are then encrypted with the same symmetric key. Decription process happens in opposite way. Usually the longer the block the safer the cipher because it reduces the possibility of repeating the same word/phrase twice within the block that could be used for ciphertext-only attack. From the investigation I did, currently algorythms use 64/128bits that corresponds to 8/16 character blocks. In general AES is considered the most secure.
 
 
 
-3.2.1.1. Block Cipher Modes
+
+
+BLOCK CIPHER MODES:
+	44, 45.
 	.ECB - Electronic Code Book
 It is the most simple among all. We literally take a block of 8/16 chars and encode it with the key. It is fast, however disadvantage here is that it does not provide data integrity (someone can change 1 block of data and this may go undetected). Also if the same plain text would fill a block, the cipher-text will be the same so it is vunerable for cryptoanalisis attacks.
 
 The mathematic formula here is: /podawać nie podawać?/
 
 
+
+
+
+	46, 47.
 	.CBC - Cipher Block Chaining
 It is sort of improved version of ECB. Each block is XORed with previously created cryptogram and only later encrypted with chosen algorythm. Each generated block depends here on the all previous blocks. As a result, even if plain text inside different blocks would be the same - the output will be different. If somebody would like to add some text there, it will affect all the following ones. 
 
@@ -306,27 +526,46 @@ You might have a question how the 1st block is created if we dont have nothing t
 Randomly generated IV is very important for safety of the CBC. If IV would be the same for 2 messages that starts the same, then first block of each would be the same, few following could be similar and this could help to break the cipher text.
 
 
+
+
+
+	48, 49.
 	.CFB - Cipher Feedback
-Here the cipher block is encrypted with the algorythm and later plain text is XORed with it to create another cipher block. Apparently somehow this allows to create blocks of the size of 1 characte, even if algorythm contains of different nominal size.
-
-// wstaw wzor i grafike //
+Here the cipher block is encrypted with the algorythm and later plain text is XORed with it to create another cipher block. Apparently somehow this allows to create blocks of the size of 1 character, even if algorythm contains of different nominal size.
 
 
+
+
+	50, 51.
 	.OFB - Output Feedback
 So here IV is ciphered with Algorythm and we get K0. This block K0 is then XORed with plain text to obtain cipher text. Next block of plain text is XORed with newly created K1. K1 is encryption of K0. Kn is encryption of Kn-1. etc.
 
 
 
-3.2.2 Stream Ciphers (strumieniowe)
+
+
+
+52.
+STREAM CIPHERS (strumieniowe)
 The plain text message is encrypted bit by bit. Instead of dividing a text into blocks, it is converted to bits. Random Number Generator generates string of random bits that are used to XOR with bits of plain text. 
 
 
 
-3.3 CRYPTOGRAPHIC PROTOCOLS
+
+//////////////////////////
+
+
+
+
+
+CRYPTOGRAPHIC PROTOCOLS
 Good algorythm for encryption is just 50% of the success, other 50% is proper usage and implementation. Cryptographic Protocols are created in order to not compromise algorythm's power. They can be understood as most efficient set of rules that should be applied when we try to implement the algorythm in real life. When designing the protocol, it is assumed that each side will cheat and protocol must prevent that from happen.  
 
 
-3.3.1 Key Exchange Protocols
+
+
+54.
+Key Exchange Protocols
 Key Exchange Protocols is set of rules and procedures that allow two sides to establish safe exchange of cryptographic keys. Those keys can be later used to secure communication. We can distinguish here:
 	.Diffie-Hellman
 	.RSA
@@ -336,33 +575,37 @@ Key Exchange Protocols is set of rules and procedures that allow two sides to es
 
 
 
+55.
 3.2.2 Digital Signature
 The concept of digital signature is based on properties of private and public keys. Public key is widely avaliable and is usually used to encrypt data that is later decrypted with private key. However that operation may be reversed. Private_key_A may also encrypt data that will be later decrypted ONLY with public_key_A. This property allows us to verify that the sender is 
 who he claims to be. Whole security is based on keeping the private key really private.
 
-						/**** put Joel's image here ****/
 
 How it works?
 So we have a document that we want to sign and send. First we will hash it with one-way hash function like SHA3-224/256/384/512. This will generate hash with 224(28)/256(32)/384(48)/512(64) bits(bytes). After that the private key is used to encrypt that hash. This final "product" is now send alongisde original text message to receiver who will use public key to encrypt "product" and later use the same SHA3 to hash text message. If both hashes are the same receiver knows that the message was not changed on the way.
 
 It is worth to mention that hash (usually) is much shorter than the original document, so also process of encryption happens faster than if we would like to encrypt whole full document.
 
-// chyba nie ma na to czasu
-.o czyms tu jeszcze zapomnialem...
-
-		/****** opisz jak dziala to sha, co to jest kolizja itd. troche info jest na chat GPD *******/
-// =====
-
 
 		
 VARIANTS:
 There are some variants of digital signature. The most interesting I found are:
 
+
+
+
+
+56.
 -> Unforgeable digital signatues (niepodrabialne podpisy cyfrowe)
 It is really impossible to prevent forgery but it might be detected. The idea here is to have few private keys that match original public key. Someone with great computing power could obtain wrong private key. Documents signed with it would still be valid but it is easy to prove forgery.
 
+
+
+
+
+57.
 -> Blind Signature (ślepy podpis)
-We talk about blind signature when person signing document does not know the content of it. To get such a result sender_A uses "blackout factor" that is a variable that is used to multiply original data. This changed data is then send to the Bank_B. _B signs it without actually knownig what is it. _A removes "blackout factor" and stays with orignal message being signed. There is some math beind it but I seen some youtube examples and it works. But more important - how _B can sign something he doesnt know? 
+We talk about blind signature when person signing document does not know the content of it. To get such a result sender_A uses "blackout factor" that is a variable that is used to multiply original data. This changed data is then send to the Bank_B. _B signs it without actually knownig what is it. _A removes "blackout factor" and stays with orignal message being signed. There is some math behind it but I seen some youtube examples and it works. But more important - how _B can sign something he doesnt know? 
 
 The solution to this is that A prepares "n" number of blinded documets. _B pick up the one he wants(eg 7) to sign and ask to send "blakckout factor" of all the rest. If all this documents contain similar content, he signs doc 7. The bigger "n" the bigger safety + if cheating would be highly puhished it all should be enough.
 
@@ -371,7 +614,11 @@ https://www.youtube.com/watch?v=CcB9nH78Ths
 https://www.youtube.com/watch?v=F5Pi5qVrt0U
 
 
-3.3.3 Secret Sharing
+
+
+
+58.
+SECRET SHARING
 Here the key to decrypt the data is shared between multiple people.
 
 Protocol Secret Splitting contains of dividing secret key between ALL users, what means that if one will lose his part, the group will not be able to obtain data.
@@ -380,13 +627,19 @@ Protocol Secret Sharing is very similar, with this difference that only certain 
 
 
 
-3.3.4 Other
+
+59.
+OTHER
 -> Zero knowledge proofs (dowody z wiedza zerowa)
 This protocol is about proving something to someone without sharing the real information. It can be used to verify identity, safe data transmission (if sides do not trust each other or you want to prove sb that you own something eg. a program you want to sell without showing it and sharing your logic).
 
-For example when you sign a document you prove to everyone who has your private key that you know both prime numbers without sharing those numbers. Another example is protocol SSH. One of the ways to establish connection is to prove identity. Server uses public key to encrypt a number, receiver decrypts it and hash it and send to the server. Then server compares hashes and grant access. This way we proove our knowledge, without revealign the plain value of the number.
+For example when you sign a document you prove to everyone who has your private key that you know both prime numbers without sharing those numbers. Another example is protocol SSH. One of the ways to establish connection is to prove identity. Server uses public key to encrypt a number, receiver decrypts it and hash it and send to the server. Then server compares hashes and grant access. This way we proove our knowledge, without revealing the plain value of the number.
 
 
+
+
+
+60.
 -> Subliminal Channel (Kanał Podprogowy)
 Stenography was about hiding an information. Just hiding. Do you remember when I said that Germans were sending a message where one dot was actually a picture that was presenting underground message? There, whole thing was about another side not being aware of the of the issue.
 
@@ -395,34 +648,57 @@ Subliminal Channel is known as modern stenography. Both sides - A and B - must h
 Anyway it is very hard to detect. This is the reason why there were created digital signature algorythms free from subliminal messages.
 
 
+
+
+
+
 -> Authentication protocol
 Authentication protocols let confirm the identity of the sides during communication.
 So basically for PAP(Password Authentication Protocol) user puts login and password, this is later compared with the database and if they match then access is granted. Others I found are:
   -> CHAP (Challenge-Handshake Authentication Protocol) - server starts commuication with sending challenge that is randomly generated string. Client generates hash from challenge and password. Server compares both and grants access if they match. This way we never send password in plain text.
   
-  -> The other ones I found is Kerberos and OAuth and FIDO /MOZE DOKONCZ, ale chyba zbyt duzo juz mam/
+  -> The other ones I found is Kerberos and OAuth and FIDO
 
 
 
 
+//////////////////////////
 
+
+
+
+61.
 3.4 PUBLIC KEY INFRASTRUCTURE (PKI)
 
+
+
+
+62, 63.
 PKI means that there exists central institution that we all trust. This institution store, share, issue and provide information about public keys. This institution is called Certification Center. User A who wants to obtain a certificate must send his public key to the CA, followed with personal data. If the verification is success then the key will have attached Certificate which proves that it belongs to the user A. The certificate containes digital signature of the CA so everybody can verify its authenticity.
 
+
+
+
+
+64.
 But there is a problem here! There is A LOT of users of the internet. And of course not everyone needs a certificate, however some insitution that are not humans may need more than one. It is hard to have one centralized institution that will serve whole world. Other thing is that people tend to not trust its own government, how about trusting interantional institution somewhere on the other side of the planet? The solution to this are intermediate certificates, that could be thought as "Regional CAs". The way it works is that end-certificate (for server) is signed by intermediate one. The intermediate's certificate might be sign by another intermediate or straight by root CA. Root CA is signed by himself.
 
-				/*** SHOW EXAMPLE AND EXPLAIN ABOUT CA AND THAT CHAIN ***/
+
+
 
 In order root CA to sign intermediate CA, intermediate must comply with certain rules. Because intermediate certificates are issued only by trusted root certificates, and end-user certificates are signed only by trusted intermediate certificates, the level of trust and security of the entire PKI is increased. On the other hand, it is harder to verify some regional institution being hacked than having just one Central. If private key of any were stolen, h4ck3r could sigh anything with it and it would be recogized by browsers as true and can provide harm.
+
+
+
+
 
 Anytime your browser reaches a server it verifies its certificate and follow the chain of certificates. If in that chain there is untrusted certificate, web browser will show warning. This warning you may also see if you issue self-signed certificate. Since browser cant determine any trusted instituton involved and you could just lie, it wil display the warning.
 
 
-				/*** SHOW IT, SAME AS WITH DOCKER ***/
 
 
 
+65.
 This whole thing is done just to prevent Man In The Middle attacks. I will try to go from the bottom to today to show you why we need things.
 
 1. Person A tries to communicate with person B. In order to encrypt the message A needs to ask B for his pub_key_B. Then the key would be used to encrypt, after that B would decrypt the message_A and done. But...
@@ -434,6 +710,11 @@ This whole thing is done just to prevent Man In The Middle attacks. I will try t
 2.1. If C sends his pub_key_C, A will take it, compare to CA database and see that they do not match and will know that someone intercept the connection. That in shortes is how it works and why we need it!.
 
 
+
+
+
+
+66.
 CERTIFICATE LIFECYCLE:
 Certificate Lifecycle contains of:
 - creation
@@ -457,117 +738,14 @@ https://www.youtube.com/watch?v=x_I6Qc35PuQ
 
 
 
-3.5 ALTERNATIVE CRYPTOGRAPHY
-3.5.1 Fizyka Kwantowa w Kryptografii
-3.5.1.1 O Kwantach
 
-QUANTUM
-Quantum is a value by which a given parametre can change.
-When it comes to daily physics those values have linear change, or I should better say continuous change. When you drive your car the velocity goes from 0 - 100 or more 1km/h after 1km/h. When it comes to quantum physics, according to world's discoveries this rules does not apply, and an elementar particle can have energy of value X in one moment and 40*X in another one with nothing in between. Its like your car drive 20km/h and next moment 80. This thing was found by Max Plank and revealed in 1900 in Berlin (almost Poland :D).
-
-
-CORPUS-WAVE DUALISM - HEISENBERG'S UNCERTAINTY PRINCIPLE (DUALIZM KORPUSKULARO-FALOWY - ZASADA NIEOZNAZCONOSCI HEISENBERGA)
-There is very simple experiment that gives astonishing results. Imagine there is a pistol that shoots fotons or electrons (I mean very little particles). Imagine in front of them there is a board with 2 holes in the middle. And behid that there is a board. When it comes to regular particles (let us say even paint-ball) they will be partially block by middle board and the final outputwill give 2 lines. If we do the same thing inside the water, the waves will create a pattern of many lines.
-
-Now back to quantum wrold.
-
-Imagine we have that paint-ball pistol that shoots photons one by one. Normally you would expect 2 lines on the board. However this does not happen, they do act like a wave and leave many lines. So scientists wanted to know what is going on and started watching what happens with electron before it pass through 1st board. And then it acted like regular particle and left 2 marks at the 2nd board. No observation - many marks, observation - one mark.
-
-This leads to Heisenberg's Uncertainty Principle that says that we can't know more than one thing about the particle. It is impossible to know the position and momentum. Anytime we try to measure we loose the state we previously knew, the particle acts like "it forgets" its previous state, or reset. 
-
-Best Explanation
-https://www.youtube.com/watch?v=4fGJ5YL6-Hk
-
-Dlaczego pomiar niszczy stan kwantowy?
-https://www.youtube.com/watch?v=azdlv0p-MB0
-
-
-				/***** DAJ TU ZDJECIA I WYJASNIAJ *****/
-				
-				
-QUANTUM ENTANGLEMENT (splątanie kwantowe)
-I was  trying to watch some videos about it to be able to explain it better, but at the end what we can take for granted is that particles are connected with each other and change of the state of one makes all of them to change the state at the same time without delay.
-
-				/***** POKAZ ZDJECIE SPLATANIA ******/
-
-
-POLARISATION and SPIN
-POLARISATION - each foton creates electromagnetic wave that oscilates perpendicular to its movement. Those waves oscilate in different dirrections. So if we have vertical polarisated sunglasses only photons with vertical polarisation will pass through the filter.
-
-https://www.google.com/search?q=polaryzacja&client=ubuntu&channel=fs&sxsrf=APwXEddaY7A1069R9H0KR7IO1Z-vi5OKlA:1680523522478&tbm=isch&source=iu&ictx=1&vet=1&fir=-P6cZ7M7n1FJ8M%252C6GrAKpLlpW0eyM%252C_%253B_WBdDsTgP6taJM%252CA2NA29ek1bRAqM%252C_%253BlyZj_cAndpxDYM%252CS8hcE0k9E_tMHM%252C_%253BoZqXps_lewuD0M%252CV5-Q5ZZmOlNqTM%252C_&usg=AI4_-kTE6mOrjWrezfF4EYNW2csd26fIcw&sa=X&ved=2ahUKEwir9d_81Y3-AhVEUaQEHa25CHoQ_h16BAgtEAE#imgrc=_xgzyYEm6sCmNM
-
-SPIN - A particle rotates around is own axis. Simplifying we can say that SPIN is angular momentum of a particle. 
-
-
-
-3.5.1.2 Kryptografia Kwantowa
-Quantum Cryptography is basing on polarisation of the photon. Each photon when moving in space creates an electromagnetic wave that is perpendicular to is movement, however the direction of the wave varies. It may be horizontal, vertical or have any other angle.
-
-					/** zdjecia fali z wikipedii **/
-					
-So now imagine we have two people who wans to securely send a message: A and B.
-
-First thing _A will do, is to send some number of photons that captured by B will later create our key (it might be worth to mention that it took a while when scientists invented a machine that may shoot just 1 photon. Usually when you turn on the lantern, there is a lot of them). After the photon is launched it passes through Polarizator chosen by _A. Then _B randomly pick up polarizators in order to receive what A sent. After this proces is done they need to talk to each other (email, physically, by phone) and exchange the information about polarizators they used. If B chose different polarizator than A then this photon is discarded. The remaining ones are chosen to create the key.
-
-			/*** put the picture here from the video when they exchage ***/
-
-Ok so now we imagine a person C who tries to spy on us.
-
-1. Similar to B he does not know the polarisation.
-2. Each time we try to measure the state of the particle, we lose the previous state. This means that if C use incorrect polarisator, the original particle sent by A wont be correct.
-3. After the process is done A and B call each other to talk about polarizators they choose and discard wrong ones. There is a way that C will capture some of the photons correctly but he wont know which one were discarded, which one kept or even if they decided to try another key because the number that was captured correctly was too low.
-3a. Polarization of the photon may be affected by the evironment. In the beginning the inaccuracy rate was 20%, now I think it is 8%. So 8% of the photons may be read wrong by B if there is more than key is repeated as it may mean somebody was spying.
-
-The ratio was lowered from 20% to 8% because in 2010 somebody managed to compromise the system. They were listening to the key, creating 19,7% of errors.
-
-
-As a curiosity I may add that in 1999 data using quantum was already transfered for 48 km. In 2002 its 60km, 2003 100km and 2006 it was 144 km. In 2017 Chinese managed to send quantum signal to the satelite, 1200 km away. ChatGPD says that currently the record is few thousand kms.
-
-
-Wytnij stad zdjecia i opisz jak to dziala.
-https://www.youtube.com/watch?v=uiiaAJ3c6dM
-
-Tez fajny:
-https://www.youtube.com/watch?v=8hNQyTdNil4
+//////////////////////////
 
 
 
 
-3.5.1.3 Komputer Kwantowy
-Humanity is reaching the limits of standard computers. What a computer is today is a buch of 0s and 1s that correspond to 0 - there is no electricity, 1 there is. A thing responsible for turning current flow on and off(prevent electrons on passing on another side) is called transistor. With time transistors were gettig smaller and smaller. This is why constantly get more speed with less size or more speed with the same size because we can put more and more transistors on the same surface. But it reaches the limit. Currently the size of transistors are 14 nm. Just to tell you: red cell is 500x bigger. Being the size of just few atoms they cant get smaller because electrons could get to the other side of transistor with process called quantum tunneling - sort of teleportation.
-
-In regular computers we have bits. As mentioned 0 - no current, 1 - current. In quantum computers we have qubits, that is quantum equivalent of a bit. Now qubit can be in any state. The easiest example would be photon: it can be polarized vertically = 1 or horizotally = 0. But it can be also polarized in any proportions of both states at once eg 10% vertiaclly and 90% horizontally. This is called superposition. As long as it is unobserved particle is in any possible state, so in our 0-1 world it can be 0,01 or 0,54 or 0,0000000134908023 AT THE SAME TIME. Once we measure it it chooses a permanent state, either 0 or 1.
-
-Now. 4 bits in regular computer will have 16 different positions but we can access only 1 at the time. 4 Qubits can be in all of this 16 positions at the same time. 200 qubits will be then in 2^200 possible positions at the same time.
-
-In regular computer logic gates get certain input and produce one output.
-
-In quantum computers we have quantum gates that uses quantum entanglement. Again: that means that measuring one entangeled qubit, we can deduct properties of its partners. By quick manipulation of qubits computer is able to find/guess what you wanted. I put here guess because from investigation i did it looks a bit like its reading in our minds.
-
-
-Quantum Computers:
-	- most likely they wont replace regular computers but will work alongisde them. If you process something with quantum computer, regular one may still be necessary to retrieve the results.
-	- to watch youtube and for personal use we will still have piece of shit lenovo, but to go to the space we as humanity will use quantum computers.
-	
-	- their advantage is in searching huge databeses. The speed is sqrtN comparing to N with regular computers
-	
-	- can be veery useful in medicine, creating simulation of molecules
-	
-	- cryptography as we spoke
-	
-	- at this time it is hard to say where it will bring us and how it will affect our lifes!
-
-
-https://www.youtube.com/watch?v=JhHMJCUmq28&t=10s
-
-
-Another topic I wanted to touch here is DNA cryptography but no time for it so do your research. Just know it exists and molecular informatics is also very powerfull.
-
-
-//
-
-=======================
-Rozdzial 4: weakest link / podsumowanie
+67, 68.
+Rozdzial 4: weakest link / SUMMARY
 
 The weakest link is usually unaware/stupid human. During the security meeting in Porto someone said, there is very big number of people who clicked more than once for pishing email. Like seriously wtf XD. At that point I understood that those people simply do not give a fuck. And here we are with our best implementing security systems and Anitas not understanding anything they do in tech company.
 
@@ -575,9 +753,9 @@ People tend to think that "I am safe because I have that encryption", but if you
 
 
 When it comes to passwords, nowadays we are more aware even within our unawareness to choose something with minimum 8 characters containing of big/small/numbers/special symbols. For many its hard to rember but check this out:
-							MniS!Mcc10$
+							HW!Tim1piC+
 hard to remember?						
-					My name is Skrill3x! My concert cost 10$.
+					Hello World! This is my 1st program in C++.
 
 This way we get password protected against "dictionary attack".
 
@@ -596,9 +774,7 @@ We may assume that there is no encryption algorythm is 100% safe. But we conside
 	. same with your password. If you update them often it is hard for someone to deduct what do you use :).
 . it is impossible to crack it with currently known means. For instance currently to bruteforce something takes years, but if new quantum-computers will come to play, it may take days or hours (its just an example, no idea how long).
 	
-	
-	
-	
-	
-	
-	
+
+
+
+THANK YOU@@!!	
